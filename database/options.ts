@@ -10,11 +10,11 @@ import { sql } from './connect';
 
 export type OptionWithId = Option & { id: number };
 
-export const createOption = cache(
+export const createOptionInsecure = cache(
   async (singleOption: string, pollId: number) => {
     const [option] = await sql<Option[]>`
       INSERT INTO
-        options (option, poll_id)
+        options (single_option, poll_id)
       VALUES
         (
           ${singleOption},
@@ -25,5 +25,6 @@ export const createOption = cache(
         single_option,
         poll_id
     `;
+    return option;
   },
 );
