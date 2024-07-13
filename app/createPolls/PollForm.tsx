@@ -110,7 +110,7 @@ export default function PollForm(props: Props) {
             Add Option
           </button>
         </div> */}
-        <button type="submit">Create Poll</button>
+        <button>Create Poll</button>
 
         {errors.map((error) => (
           <div className="error" key={`error-${error.message}`}>

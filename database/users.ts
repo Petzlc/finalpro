@@ -1,21 +1,21 @@
 import { cache } from 'react';
-import { User } from '../migrations/00000-createTableUsers';
+// import { User } from '../migrations/00000-createTableUsers';
 import { sql } from './connect';
 
-// export type User = {
-//   id: number;
-//   userName: string;
-//   email: string;
-// };
+export type User = {
+  id: number;
+  userName: string;
+  email: string;
+};
 
 type UserWithPasswordHash = User & {
   passwordHash: string;
 };
 
 export const getUser = cache(async (sessionToken: string) => {
-  const [user] = await sql<Pick<User, 'id' | 'userName'>[]>`
+  const [user] = await sql<Pick<User, 'userName'>[]>`
     SELECT
-      users.user_id,
+      -- users.user_id,
       users.user_name
     FROM
       users

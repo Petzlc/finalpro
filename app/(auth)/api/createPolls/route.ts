@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createPoll } from '../../../../database/polls';
+import { createPollInsecure } from '../../../../database/polls';
 import { getValidSession } from '../../../../database/sessions';
 import {
   Poll,
@@ -59,7 +59,7 @@ export async function POST(
   const userId = session.userId;
 
   // 4. Save the polls information in the database
-  const newPoll = await createPoll(
+  const newPoll = await createPollInsecure(
     result.data.title,
     result.data.description,
     userId,
