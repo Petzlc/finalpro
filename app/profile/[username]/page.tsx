@@ -5,7 +5,7 @@ import { getUser } from '../../../database/users';
 
 type Props = {
   params: {
-    username: String;
+    username: string;
   };
 };
 

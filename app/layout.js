@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
                 <div className="dropdown-content">
                   <Link href="/register">Sign Up</Link>
                   <Link href="/createPolls">Polls</Link>
-                  <Link href={`/profile`}>Profile</Link>
+                  <Link href="/profile">Profile</Link>
                 </div>
               </details>
             </div>
