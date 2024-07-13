@@ -1,12 +1,12 @@
 import { cache } from 'react';
-import { Option } from '../migrations/00002-createTableOptions';
+// import { Option } from '../migrations/00002-createTableOptions';
 import { sql } from './connect';
 
-// export type Option = {
-//   id: number;
-//   singleOption: string;
-//   pollId: number;
-// };
+export type Option = {
+  id: number;
+  singleOption: string;
+  pollId: number;
+};
 
 export type OptionWithId = Option & { id: number };
 

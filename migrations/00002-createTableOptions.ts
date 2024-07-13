@@ -9,6 +9,7 @@ export type Option = {
 
 export const optionSchema = z.object({
   singleOption: z.string().min(1),
+  pollId: z.number(),
 });
 
 export async function up(sql: Sql) {
