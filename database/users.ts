@@ -102,6 +102,18 @@ export const getUserWithPasswordHashInsecure = cache(
   },
 );
 
+export const getUserByIdInsecure = cache(async (id: number) => {
+  const [user] = await sql<User[]>`
+    SELECT
+      id,
+      user_name
+    FROM
+      users
+    WHERE
+      id = ${id}
+  `;
+  return user;
+});
 // export async function getUserBySessionToken(
 //   sessionToken: string,
 // ): Promise<User | undefined> {

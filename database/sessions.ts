@@ -4,14 +4,14 @@ import { sql } from './connect';
 
 export const getValidSession = cache(async (sessionToken: string) => {
   const [session] = await sql<Pick<Session, 'id' | 'userId'>[]>`
-  SELECT
-    sessions.id,
-    sessions.user_id
-  FROM
-    sessions
-  WHERE
-    sessions.token = ${sessionToken}
-    AND expiry_timestamp > now()
+    SELECT
+      sessions.id,
+      sessions.user_id
+    FROM
+      sessions
+    WHERE
+      sessions.token = ${sessionToken}
+      AND expiry_timestamp > now()
   `;
   return session;
 });
@@ -19,26 +19,23 @@ export const getValidSession = cache(async (sessionToken: string) => {
 export const createSessionInsecure = cache(
   async (token: string, userId: number) => {
     const [session] = await sql<Session[]>`
-  INSERT INTO
-  sessions (
-    token,
-    user_id
-  )
-  VALUES
-  (
-    ${token},
-    ${userId}
-  )
-  RETURNING
-  sessions.id,
-  sessions.token,
-  sessions.user_id
-  `;
+      INSERT INTO
+        sessions (token, user_id)
+      VALUES
+        (
+          ${token},
+          ${userId}
+        )
+      RETURNING
+        sessions.id,
+        sessions.token,
+        sessions.user_id
+    `;
 
     await sql`
-    DELETE FROM sessions
-    WHERE
-      expiry_timestamp < now()
+      DELETE FROM sessions
+      WHERE
+        expiry_timestamp < now()
     `;
 
     return session;
@@ -49,12 +46,27 @@ export const createSessionInsecure = cache(
 
 export const deleteSession = cache(async (sessionToken: string) => {
   const [session] = await sql<Pick<Session, 'id' | 'token'>[]>`
-      DELETE FROM sessions
-      WHERE
-        sessions.token = ${sessionToken}
-      RETURNING
-        sessions.id,
-        sessions.token
-      `;
+    DELETE FROM sessions
+    WHERE
+      sessions.token = ${sessionToken}
+    RETURNING
+      sessions.id,
+      sessions.token
+  `;
+  return session;
+});
+
+export const getValidSessionById = cache(async (sessionToken: string) => {
+  const [session] = await sql<Pick<Session, 'id' | 'token' | 'userId'>[]>`
+    SELECT
+      sessions.id,
+      sessions.token,
+      sessions.user_id AS "userId"
+    FROM
+      sessions
+    WHERE
+      sessions.token = ${sessionToken}
+      AND expiry_timestamp > now()
+  `;
   return session;
 });

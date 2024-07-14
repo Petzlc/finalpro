@@ -1,21 +1,25 @@
-import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
-import { getUserBySessionToken } from '../../../../database/users';
+// import { NextRequest, NextResponse } from 'next/server';
+// import { getValidSession } from '../../../../database/sessions';
+// import { getUserByIdInsecure } from '../../../../database/users';
 
-export type User = {
-  id: number;
-  userName: string;
-  email: string;
-};
+// export async function GET(request: NextRequest): Promise<NextResponse> {
+//   const sessionToken = request.cookies.get('sessionToken')?.value;
 
-export async function GET(): Promise<NextResponse<{ user: User | null }>> {
-  const sessionToken = cookies().get('sessionToken')?.value;
+//   if (!sessionToken) {
+//     return NextResponse.json({ user: null }, { status: 401 });
+//   }
 
-  if (!sessionToken) {
-    return NextResponse.json({ user: null });
-  }
+//   const session = await getValidSession(sessionToken);
 
-  const user = await getUserBySessionToken(sessionToken);
+//   if (!session) {
+//     return NextResponse.json({ user: null }, { status: 401 });
+//   }
 
-  return NextResponse.json({ user: user ?? null });
-}
+//   const user = await getUserByIdInsecure(session.userId);
+
+//   if (!user) {
+//     return NextResponse.json({ user: null }, { status: 404 });
+//   }
+
+//   return NextResponse.json({ user });
+// }
