@@ -58,23 +58,6 @@
   color: #000;
 }
 
-/* .signIn .logout-button {
-  background: none;
-  border: none;
-  color: black;
-  font: inherit;
-  cursor: pointer;
-  padding: 10px 20px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.logout-button:hover,
-.logout-button:focus {
-  background-color: #ddd;
-  color: #000;
-} */
-
 .dropdown {
   position: relative;
 }

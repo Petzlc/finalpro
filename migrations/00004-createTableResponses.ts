@@ -9,12 +9,12 @@ export type Response = {
 
 export async function up(sql: Sql) {
   await sql`
-  CREATE TABLE responses (
-    id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    poll_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    option_id INTEGER NOT NULL
-  )
+    CREATE TABLE responses (
+      id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      poll_id integer NOT NULL REFERENCES polls (id) ON DELETE cascade,
+      user_id integer NOT NULL REFERENCES users (id) ON DELETE cascade,
+      option_id integer NOT NULL REFERENCES options (id) ON DELETE cascade
+    )
   `;
 }
 
