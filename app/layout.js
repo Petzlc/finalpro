@@ -45,6 +45,7 @@ export default async function RootLayout({ children }) {
               <Link href="/">Home</Link>
             </div>
             <div className="right-nav">
+              <Link className="userName" href={`/profile/${user?.userName}`}>{user?.userName}</Link>
               <div className="signIn">
                 {user ? (
                   <form action={logout} method="post">
@@ -53,7 +54,9 @@ export default async function RootLayout({ children }) {
                     </button>
                   </form>
                 ) : (
-                  <Link href="/login" className="auth-button">Sign In</Link>
+                  <Link href="/login" className="auth-button">
+                    Sign In
+                  </Link>
                 )}
               </div>
               <details className="dropdown">

@@ -40,7 +40,10 @@ export default function RegisterForm() {
     // Redirect from the successful registration to the profile
 
     router.push(`/profile/${data.user.userName}`);
+
+    router.refresh();
   }
+
   return (
     <form onSubmit={async (event) => await handleRegister(event)}>
       <label>

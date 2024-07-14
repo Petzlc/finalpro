@@ -16,6 +16,14 @@
   gap: 20px;
 }
 
+.userName {
+  text-decoration: none;
+  color: black;
+  /* outline: 1px solid black; */
+  /* padding: 10px 20px; */
+  /* border-radius: 15px; */
+}
+
 /* Styling for links in the left and right navigation areas */
 .left-nav a,
 .right nav a {
@@ -39,6 +47,7 @@
   border-radius: 15px;
 }
 
+/* Login/Logout Link styling */
 .auth-button {
   background: none;
   border: none;
