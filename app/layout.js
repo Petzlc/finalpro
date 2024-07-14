@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { getValidSessionById } from '../database/sessions';
 import { getUserByIdInsecure } from '../database/users';
+import { logout } from './(auth)/logout/actions';
 
 // import localFont from 'next/font/local';
 
@@ -45,7 +46,15 @@ export default async function RootLayout({ children }) {
             </div>
             <div className="right-nav">
               <div className="signIn">
-                <Link href="/login">Sign In</Link>
+                {user ? (
+                  <form action={logout} method="post">
+                    <button className="auth-button logout-button">
+                      Logout
+                    </button>
+                  </form>
+                ) : (
+                  <Link href="/login" className="auth-button">Sign In</Link>
+                )}
               </div>
               <details className="dropdown">
                 <summary className="dropdown-summary">Menu</summary>

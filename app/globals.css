@@ -39,6 +39,42 @@
   border-radius: 15px;
 }
 
+.auth-button {
+  background: none;
+  border: none;
+  color: black;
+  font: inherit;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  outline: 1px solid black;
+  border-radius: 15px;
+}
+
+.auth-button:hover,
+.auth-button:focus {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* .signIn .logout-button {
+  background: none;
+  border: none;
+  color: black;
+  font: inherit;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logout-button:hover,
+.logout-button:focus {
+  background-color: #ddd;
+  color: #000;
+} */
+
 .dropdown {
   position: relative;
 }
