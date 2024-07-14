@@ -52,7 +52,7 @@ export default async function RootLayout({ children }) {
                 <div className="dropdown-content">
                   <Link href="/register">Sign Up</Link>
                   <Link href="/createPolls">Polls</Link>
-                  <Link href={`/profile/${user.userName}`}>Profile</Link>
+                  <Link href={`/profile/${user?.userName}`}>Profile</Link>
                 </div>
               </details>
             </div>
