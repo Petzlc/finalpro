@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { CreatePollResponseBodyPost } from '../(auth)/api/createPolls/route';
 import { CreateOptionsResponseBodyPost } from '../(auth)/api/options/route';
-import { getSafeReturnToPath } from '../../util/validation';
+// import { getSafeReturnToPath } from '../../util/validation';
 import ErrorMessage from '../ErrorMessage';
 
 type Props = { returnTo?: string | string[] };
@@ -83,14 +83,18 @@ export default function PollForm(props: Props) {
     }
 
     // Redirect after successful poll creation
-    router.push(getSafeReturnToPath(props.returnTo) || '/');
-    router.refresh();
+    // router.push(getSafeReturnToPath(props.returnTo) || '/');
+    // router.refresh();
+
+    // Redirect to created poll page after successful poll creation
+    router.push(`/poll/${pollId}`);
   }
 
   return (
     <div>
       <h1>Create a new Poll</h1>
-      <form onSubmit={async (event) => await handleSubmit(event)}>
+      <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={async (event) => await handleSubmit(event)}> */}
         <div>
           <label>
             Poll Title:

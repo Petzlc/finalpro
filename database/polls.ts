@@ -34,17 +34,17 @@ export const createPollInsecure = cache(
   },
 );
 
-// export const getPollByIdInsecure = cache(async (id: number) => {
-//   const [poll] = await sql<PollWithId[]>`
-//     SELECT
-//       *
-//     FROM
-//       polls
-//     WHERE
-//       id = ${id}
-//   `;
-//   return poll;
-// });
+export const getPollByIdInsecure = cache(async (id: number) => {
+  const [poll] = await sql<PollWithId[]>`
+    SELECT
+      *
+    FROM
+      polls
+    WHERE
+      id = ${id}
+  `;
+  return poll;
+});
 
 // export const getAllPollsInsecure = cache(async () => {
 //   const polls = await sql<PollWithId[]>`
