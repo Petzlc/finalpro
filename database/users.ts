@@ -114,20 +114,21 @@ export const getUserByIdInsecure = cache(async (id: number) => {
   `;
   return user;
 });
-// export async function getUserBySessionToken(
-//   sessionToken: string,
-// ): Promise<User | undefined> {
-//   const [user] = await sql<User[]>`
-//     SELECT
-//       users.*
-//     FROM
-//       users
-//       JOIN sessions ON sessions.user_id = users.id
-//     WHERE
-//       sessions.token = ${sessionToken}
-//   `;
-//   return user;
-// }
+
+export async function getUserBySessionToken(
+  sessionToken: string,
+): Promise<User | undefined> {
+  const [user] = await sql<User[]>`
+    SELECT
+      users.*
+    FROM
+      users
+      JOIN sessions ON sessions.user_id = users.id
+    WHERE
+      sessions.token = ${sessionToken}
+  `;
+  return user;
+}
 // export const updateUserInsecure = cache(async (updatedUser: User) => {
 //   const [user] = await sql<User[]>`
 //   UPDATE users
