@@ -10,7 +10,7 @@ type Props = {
     returnTo?: string | string[];
   };
 };
-export default async function (props: Props) {
+export default async function createPolls(props: Props) {
   // Task: Protect the Polls page and redirect to login if the user is not logged in
   // 1. Checking if the sessionToken cookie exists
   const sessionCookie = cookies().get('sessionToken');

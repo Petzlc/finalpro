@@ -45,7 +45,6 @@ export default function PollForm(props: Props) {
       body: JSON.stringify({
         title,
         description,
-        // options,
       }),
 
       headers: {

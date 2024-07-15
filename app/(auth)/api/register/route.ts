@@ -6,11 +6,9 @@ import { createSessionInsecure } from '../../../../database/sessions';
 import {
   createUserInsecure,
   getUserInsecure,
-} from '../../../../database/users';
-import {
   User,
-  userSchema,
-} from '../../../../migrations/00000-createTableUsers';
+} from '../../../../database/users';
+import { userSchema } from '../../../../migrations/00000-createTableUsers';
 import { secureCookieOptions } from '../../../../util/cookies';
 
 export type RegisterResponseBodyPost =
