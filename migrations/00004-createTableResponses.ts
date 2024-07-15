@@ -1,4 +1,5 @@
 import { Sql } from 'postgres';
+import { z } from 'zod';
 
 export type Response = {
   id: number;
@@ -6,6 +7,12 @@ export type Response = {
   userId: number;
   optionId: number;
 };
+
+export const responseSchema = z.object({
+  pollId: z.number().min(1),
+  userId: z.number().min(1),
+  optionId: z.number().min(1),
+});
 
 export async function up(sql: Sql) {
   await sql`
