@@ -44,6 +44,7 @@ export const createOptionInsecure = cache(
 // })
 
 export const getOptionsByPollIdInsecure = cache(async (pollId: number) => {
+  // you don't need [] here because [options] would only return the first option then but in this case, you want all options
   const options = await sql<Option[]>`
     SELECT
       id,
