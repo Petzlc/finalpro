@@ -7,6 +7,11 @@ import { CreateOptionsResponseBodyPost } from '../(auth)/api/options/route';
 // import { getSafeReturnToPath } from '../../util/validation';
 import ErrorMessage from '../ErrorMessage';
 
+// I might want to use this returnTo for a safe return to a page, just like in the LoginForm. Looks like this:
+// router.push(
+//   getSafeReturnToPath(props.returnTo) || `/profile/${data.user.userName}`,
+// );
+// router.refresh();
 type Props = { returnTo?: string | string[] };
 
 export default function PollForm(props: Props) {
