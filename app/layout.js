@@ -45,7 +45,9 @@ export default async function RootLayout({ children }) {
               <Link href="/">Home</Link>
             </div>
             <div className="right-nav">
-              <Link className="userName" href={`/profile/${user?.userName}`}>{user?.userName}</Link>
+              <Link className="userName" href={`/profile/${user?.userName}`}>
+                {user?.userName}
+              </Link>
               <div className="signIn">
                 {user ? (
                   <form action={logout} method="post">
@@ -65,6 +67,7 @@ export default async function RootLayout({ children }) {
                   <Link href="/register">Sign Up</Link>
                   <Link href="/createPolls">Polls</Link>
                   <Link href={`/profile/${user?.userName}`}>Profile</Link>
+                  <Link href="/dashboard">Dashboard</Link>
                 </div>
               </details>
             </div>

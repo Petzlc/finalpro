@@ -1,7 +1,9 @@
 // This page is for creating polls I guess so you might then want to put this into a polls folder that doesn't exist yet with the following path: app/polls/dashboard
 
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { getAllPollsInsecure, Poll } from '../../database/polls';
 import { getValidSession } from '../../database/sessions';
 
 export const metadata = {
@@ -24,9 +26,28 @@ export default async function PollsPage() {
 
   // const polls = await getPolls(session.token)  --> for this you also need to change the sessions.ts file as mentioned below and explained in the video session:review
 
+  // 4. Fetch all polls from the database
+  const polls: Poll[] = await getAllPollsInsecure();
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <h2>All Polls</h2>
+      <ul>
+        {polls.map((poll) => (
+          <li key={`poll-${poll.id}`}>
+            <Link href={`/poll/${poll.id}`}>
+              <h3>{poll.title}</h3>
+              <p>{poll.description}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   // 4. If the sessionToken cookie is valid, allow access to dashboard page
   // return <PollsForm polls={polls} />;
 
   // check out video Sessions: Review.... Minute 9. He also changes sessions.ts file getValidSession. you will also need to create the getPolls function in the polls.ts file in /database that is not yet created. all in the video
-
 }

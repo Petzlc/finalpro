@@ -29,7 +29,7 @@ export const createOptionInsecure = cache(
   },
 );
 
-// export async function getOptionsByPollId = cache(async (pollId: number) => {
+// export async function getOptionsByPollIdInsecure = cache(async (pollId: number) => {
 //   const options = await sql<Option[]>`
 //     SELECT
 //       id,
