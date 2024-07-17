@@ -47,8 +47,8 @@ export default function PollOptions({ pollId, options }: PollOptionsProps) {
       console.error('Failed to submit vote');
     } else {
       console.log('Vote submitted successfully');
-      // router.push('/thank-you')
-      router.push('/');
+      router.push('/thankyou');
+      // router.push('/');
     }
   };
 
