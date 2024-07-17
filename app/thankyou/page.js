@@ -5,7 +5,7 @@ export default function ThankYou() {
     <div>
       <h1>Thank you for participating in this poll!</h1>
       <p>Your response has been recorded.</p>
-      {/* <Link>Return Home</Link> */}
+      <Link href="/">Return Home</Link>
     </div>
   );
 }
