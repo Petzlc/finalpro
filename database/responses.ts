@@ -31,6 +31,25 @@ export const createResponseInsecure = cache(
   },
 );
 
+export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
+  const responses = await sql<
+    {
+      optionId: number;
+      count: number;
+    }[]
+  >`
+    SELECT
+      option_id AS "optionId",
+      count(*)::integer AS COUNT
+    FROM
+      responses
+    WHERE
+      poll_id = ${pollId}
+    GROUP BY
+      option_id
+  `;
+  return responses;
+});
 // export const getResponseWithId = cache(async (id: number) => {
 //   const [response] = await sql<ResponseWithId[]>`
 //     SELECT
