@@ -1,6 +1,7 @@
 import { getOptionsByPollIdInsecure } from '../../../database/options';
 import { getPollByIdInsecure } from '../../../database/polls';
 import PollOptions from '../../components/PollOptions';
+import PollResults from '../../components/PollResults';
 
 type Props = {
   params: { id: string };
@@ -20,6 +21,7 @@ export default async function PollPage({ params }: Props) {
       <h1>{poll.title}</h1>
       <p>{poll.description}</p>
       <PollOptions pollId={pollId} options={options} />
+      <PollResults pollId={pollId} />
     </div>
   );
 }
