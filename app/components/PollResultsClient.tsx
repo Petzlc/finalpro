@@ -1,11 +1,26 @@
-// 'use client';
+'use client';
 
-// import PollResults from './PollResults';
+type PollResultsClientProps = {
+  responses: { optionId: number; count: number }[];
+};
 
-// type PollResultsClientProps = {
-//   pollId: number;
-// };
+export default function PollResultsClient({
+  responses,
+}: PollResultsClientProps) {
+  if (responses.length === 0) {
+    return <div>No responses yet.</div>;
+  }
 
-// export default function PollResultsClient({ pollId }: PollResultsClientProps) {
-//   return <PollResults pollId={pollId} />;
-// }
+  return (
+    <div>
+      <h2>Poll Results</h2>
+      <ul>
+        {responses.map((response) => (
+          <li key={`response-${response.optionId}`}>
+            Option {response.optionId}: {response.count} votes
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
