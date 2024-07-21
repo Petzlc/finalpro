@@ -1,7 +1,7 @@
+import { getOptionsByPollIdInsecure } from '../../database/options';
 import { getPollByIdInsecure } from '../../database/polls';
-// import { getResponsesByPollIdInsecure } from '../../database/responses';
-// import PollResultsClient from '../components/PollResultsClient';
-import PollResults from '../components/PollResults';
+import { getResponsesByPollIdInsecure } from '../../database/responses';
+import PollResultsChart from '../components/PollResultsChart';
 
 type Props = {
   searchParams: { pollId: string };
@@ -15,12 +15,16 @@ export default async function ResultsPage({ searchParams }: Props) {
     return <div>Poll not found</div>;
   }
 
-  // const responses = await getResponsesByPollIdInsecure(pollId);
+  const responses = await getResponsesByPollIdInsecure(pollId);
+  const options = await getOptionsByPollIdInsecure(pollId);
+
+  const labels = options.map((option) => option.singleOption);
+  const data = responses.map((response) => response.count);
 
   return (
     <div>
       <h1>{poll.title}</h1>
-      <PollResults pollId={pollId} />
+      <PollResultsChart labels={labels} data={data} />
     </div>
   );
 }
