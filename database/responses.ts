@@ -10,6 +10,18 @@ export type Response = {
 
 export type ResponseWithId = Response & { id: number };
 
+export type ResponseWithCountAndText = {
+  optionId: number;
+  count: number;
+  optionText: string;
+};
+
+// export type PollDetails = {
+//   id: number;
+//   title: string;
+//   description: string;
+// };
+
 export const createResponseInsecure = cache(
   async (pollId: number, userId: number, optionId: number) => {
     const [response] = await sql<Response[]>`
@@ -31,33 +43,71 @@ export const createResponseInsecure = cache(
   },
 );
 
-export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
-  const responses = await sql<
-    {
-      optionId: number;
-      count: number;
-    }[]
-  >`
-    SELECT
-      option_id AS "optionId",
-      count(*)::integer AS COUNT
-    FROM
-      responses
-    WHERE
-      poll_id = ${pollId}
-    GROUP BY
-      option_id
-  `;
-  return responses;
-});
-// export const getResponseWithId = cache(async (id: number) => {
-//   const [response] = await sql<ResponseWithId[]>`
+// So wars vorher
+// export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
+//   const responses = await sql<
+//     {
+//       optionId: number;
+//       count: number;
+//     }[]
+//   >`
 //     SELECT
-//       *
+//       option_id AS "optionId",
+//       count(*)::integer AS COUNT
 //     FROM
 //       responses
 //     WHERE
-//       id = ${id}
+//       poll_id = ${pollId}
+//     GROUP BY
+//       option_id
 //   `;
-//   return response;
+//   return responses;
+// });
+
+// Spalte options.text exisitert nicht man muss also wahrscheinlich über die options auf den string zugreifen.
+
+export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
+  const responses = await sql<ResponseWithCountAndText[]>`
+    SELECT
+      r.option_id AS "optionId",
+      count(r.id) AS "count",
+      o.single_option AS "optionText"
+    FROM
+      responses r
+      INNER JOIN options o ON r.option_id = o.id
+    WHERE
+      r.poll_id = ${pollId}
+    GROUP BY
+      r.option_id,
+      o.single_option
+  `;
+  return responses;
+});
+
+// export const getPollByIdInsecure = cache(async (pollId: number) => {
+//   const [poll] = await sql<PollDetails[]>`
+//     SELECT
+//       id,
+//       title,
+//       description
+//     FROM
+//       polls
+//     WHERE
+//       id = ${pollId}
+//   `;
+//   return poll;
+// });
+
+// export const getPollByIdInsecure = cache(async (pollId: number) => {
+//   const [poll] = await sql<PollDetails[]>`
+//     SELECT
+//       id,
+//       title,
+//       description
+//     FROM
+//       polls
+//     WHERE
+//       id = ${pollId}
+//   `;
+//   return poll;
 // });
