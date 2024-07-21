@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getOptionsByPollIdInsecure } from '../../database/options';
 import { getPollByIdInsecure } from '../../database/polls';
 import { getResponsesByPollIdInsecure } from '../../database/responses';
@@ -25,6 +26,8 @@ export default async function ResultsPage({ searchParams }: Props) {
     <div>
       <h1>{poll.title}</h1>
       <PollResultsChart labels={labels} data={data} />
+      <Link href="/dashboard">Return to dashboard</Link>
+      <Link href="/createPolls">Create another poll</Link>
     </div>
   );
 }
