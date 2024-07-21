@@ -64,8 +64,7 @@ export const createResponseInsecure = cache(
 //   return responses;
 // });
 
-// Spalte options.text exisitert nicht man muss also wahrscheinlich über die options auf den string zugreifen.
-
+// To show real names and options on the results page
 export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
   const responses = await sql<ResponseWithCountAndText[]>`
     SELECT
@@ -84,30 +83,21 @@ export const getResponsesByPollIdInsecure = cache(async (pollId: number) => {
   return responses;
 });
 
-// export const getPollByIdInsecure = cache(async (pollId: number) => {
-//   const [poll] = await sql<PollDetails[]>`
-//     SELECT
-//       id,
-//       title,
-//       description
-//     FROM
-//       polls
-//     WHERE
-//       id = ${pollId}
-//   `;
-//   return poll;
-// });
-
-// export const getPollByIdInsecure = cache(async (pollId: number) => {
-//   const [poll] = await sql<PollDetails[]>`
-//     SELECT
-//       id,
-//       title,
-//       description
-//     FROM
-//       polls
-//     WHERE
-//       id = ${pollId}
-//   `;
-//   return poll;
-// });
+// make sure every user can only take poll once
+export const getResponseByPollIdAndUserIdInsecure = cache(
+  async (pollId: number, userId: number) => {
+    const [response] = await sql<Response[]>`
+      SELECT
+        id,
+        poll_id,
+        user_id,
+        option_id
+      FROM
+        responses
+      WHERE
+        poll_id = ${pollId}
+        AND user_id = ${userId}
+    `;
+    return response;
+  },
+);

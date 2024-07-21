@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
   createResponseInsecure,
+  getResponseByPollIdAndUserIdInsecure,
   ResponseWithId,
 } from '../../../../database/responses';
 import { getValidSession } from '../../../../database/sessions';
@@ -78,6 +79,22 @@ export async function POST(
   }
 
   const { pollId, optionId } = result.data;
+
+  // Check, if user already took poll
+  const existingResponse = await getResponseByPollIdAndUserIdInsecure(
+    pollId,
+    userId,
+  );
+
+  if (existingResponse) {
+    console.error('User has already responded to this poll');
+    return NextResponse.json(
+      { errors: [{ message: 'You have already responded to this poll' }] },
+      {
+        status: 400,
+      },
+    );
+  }
 
   // 5. Save the response information in the database
   const newResponse = await createResponseInsecure(pollId, userId, optionId);
