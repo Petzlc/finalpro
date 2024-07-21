@@ -58,6 +58,22 @@ export const getAllPollsInsecure = cache(async () => {
   return polls;
 });
 
+export const getRandomPollsInsecure = cache(async (limit: number) => {
+  const polls = await sql<Poll[]>`
+    SELECT
+      id,
+      title,
+      description
+    FROM
+      polls
+    ORDER BY
+      random()
+    LIMIT
+      ${limit}
+  `;
+  return polls;
+});
+
 // export const getPollByTitleInsecure = cache(async (title: string) => {
 //   const [poll] = await sql<Poll[]>`
 //     SELECT
