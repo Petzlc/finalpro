@@ -1,0 +1,71 @@
+.homeContainer {
+  text-align: center;
+  padding: 20px;
+}
+
+.heroText {
+  background: rgba(0, 0, 0, 0.5); //slightly matte and transparent background
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.linkContainer {
+  margin: 20px 0;
+}
+
+.styledLink {
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.pollCardsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pollCard {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  h3,
+  p {
+    margin: 0;
+    padding: 10px 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
