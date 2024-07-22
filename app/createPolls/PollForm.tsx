@@ -88,7 +88,7 @@ export default function PollForm(props: Props) {
     }
 
     // Redirect after successful poll creation
-    // router.push(getSafeReturnToPath(props.returnTo) || '/');
+    // router.push(getSafeReturnToPath(props.returnTo) || `/poll/${pollId}`);
     // router.refresh();
 
     // Redirect to created poll page after successful poll creation

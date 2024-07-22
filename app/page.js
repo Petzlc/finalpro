@@ -11,7 +11,15 @@ export default async function Home() {
   const polls = await getRandomPollsInsecure(3);
   return (
     <div>
-      <h1>hello world</h1>
+      <div>
+        <h1>Raise your hands for destiny</h1>
+      </div>
+      <div>
+        <Link href="/register">Sign Up</Link>
+      </div>
+      <div>
+        <Link href="/createPolls">Take a Poll</Link>
+      </div>
       <div>
         {polls.map((poll) => (
           <div key={`poll-${poll.id}`}>

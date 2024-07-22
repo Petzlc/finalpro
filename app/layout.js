@@ -42,7 +42,7 @@ export default async function RootLayout({ children }) {
         <header>
           <nav className="main-nav">
             <div className="left-nav">
-              <Link href="/">Home</Link>
+              <Link href="/">HandsApp</Link>
             </div>
             <div className="right-nav">
               <Link className="userName" href={`/profile/${user?.userName}`}>
@@ -74,6 +74,9 @@ export default async function RootLayout({ children }) {
           </nav>
         </header>
         <main>{children}</main>
+        <footer>
+          <p>Footer content</p>
+        </footer>
       </body>
     </html>
   );
