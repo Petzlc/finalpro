@@ -5,6 +5,7 @@ import { getPollByIdInsecure } from '../../../database/polls';
 import { getResponseByPollIdAndUserIdInsecure } from '../../../database/responses';
 import { getValidSession } from '../../../database/sessions';
 import PollOptions from '../../components/PollOptions';
+import styles from './poll.module.scss';
 
 // import PollResults from '../../components/PollResults';
 
@@ -44,7 +45,7 @@ export default async function PollPage({ params }: Props) {
   }
 
   return (
-    <div>
+    <div className={styles.pollContainer}>
       <h1>{poll.title}</h1>
       <p>{poll.description}</p>
       {userHasResponded ? (

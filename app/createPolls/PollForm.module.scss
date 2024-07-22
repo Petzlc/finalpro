@@ -1,8 +1,12 @@
+// PollForm.module.scss
+
 .pollFormContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .formElement {
@@ -37,6 +41,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .input {
@@ -47,3 +52,574 @@
   width: 100%;
   flex-grow: 1;
 }
+
+.removeButton {
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.addButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  align-self: flex-end;
+}
+
+.createPollButton {
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  font-size: 16px;
+}
+
+.createPollButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.error {
+  color: red;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// .pollFormContainer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .formElement {
+//   border: 5px solid white;
+//   border-radius: 10px;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   color: white;
+//   text-align: left;
+//   width: 100%;
+//   max-width: 600px;
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+// }
+
+// .labelContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   width: 100%;
+// }
+
+// .labelRow {
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   gap: 10px;
+// }
+
+// .labelText {
+//   flex-basis: 30%;
+//   text-align: right;
+// }
+
+// .input {
+//   padding: 10px;
+//   border: 2px solid white;
+//   background: transparent;
+//   color: white;
+//   flex-grow: 1;
+//   width: 70%;
+// }
+
+// .optionContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .inputContainer {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .removeButton {
+//   background: none;
+//   border: none;
+//   color: gray;
+//   cursor: pointer;
+//   font-size: 18px;
+// }
+
+// .addButton {
+//   background: none;
+//   border: none;
+//   color: white;
+//   cursor: pointer;
+//   font-size: 24px;
+//   align-self: flex-end;
+// }
+
+// .createPollButton {
+//   padding: 10px 20px;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: white;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s,
+//     color 0.3s;
+//   font-size: 16px;
+// }
+
+// .createPollButton:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// .error {
+//   color: red;
+// }
+
+////////////////////////////////////////////////////////////////////////////////
+
+// .pollFormContainer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .formElement {
+//   border: 5px solid white;
+//   border-radius: 10px;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   color: white;
+//   text-align: left;
+//   width: 100%;
+//   max-width: 600px;
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+// }
+
+// .labelContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   width: 100%;
+// }
+
+// .labelRow {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   width: 100%;
+//   gap: 10px;
+// }
+
+// .labelText {
+//   flex-basis: 30%;
+//   text-align: right;
+// }
+
+// .input {
+//   padding: 10px;
+//   border: 2px solid white;
+//   background: transparent;
+//   color: white;
+//   flex-grow: 1;
+//   width: 70%;
+// }
+
+// .optionContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .inputContainer {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .removeButton {
+//   background: none;
+//   border: none;
+//   color: gray;
+//   cursor: pointer;
+//   font-size: 18px;
+// }
+
+// .addButton {
+//   background: none;
+//   border: none;
+//   color: white;
+//   cursor: pointer;
+//   font-size: 24px;
+//   align-self: flex-end;
+// }
+
+// .createPollButton {
+//   padding: 10px 20px;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: white;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s,
+//     color 0.3s;
+//   font-size: 16px;
+// }
+
+// .createPollButton:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// .error {
+//   color: red;
+// }
+
+// .pollFormContainer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .formElement {
+//   border: 5px solid white;
+//   border-radius: 10px;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   max-width: 500px;
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+// }
+
+// .labelContainer {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+// }
+
+// .labelRow {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+//   gap: 10px;
+// }
+
+// .labelText {
+//   flex-basis: 30%;
+//   text-align: right;
+// }
+
+// .input {
+//   padding: 10px;
+//   border: 2px solid white;
+//   background: transparent;
+//   color: white;
+//   flex-grow: 1;
+//   width: 70%;
+// }
+
+// .optionContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .inputContainer {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .removeButton {
+//   background: none;
+//   border: none;
+//   color: gray;
+//   cursor: pointer;
+//   font-size: 18px;
+// }
+
+// .addButton {
+//   background: none;
+//   border: none;
+//   color: white;
+//   cursor: pointer;
+//   font-size: 24px;
+//   align-self: flex-end;
+// }
+
+// .createPollButton {
+//   padding: 10px 20px;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: white;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s,
+//     color 0.3s;
+//   font-size: 16px;
+// }
+
+// .createPollButton:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// .error {
+//   color: red;
+// }
+
+// .pollFormContainer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .formElement {
+//   border: 5px solid white;
+//   border-radius: 10px;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   max-width: 500px;
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+// }
+
+// .labelContainer {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+// }
+
+// .label {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+//   gap: 10px;
+// }
+
+// .input {
+//   padding: 10px;
+//   border: 2px solid white;
+//   background: transparent;
+//   color: white;
+//   flex-grow: 1;
+//   width: 70%;
+// }
+
+// .optionContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .inputContainer {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .removeButton {
+//   background: none;
+//   border: none;
+//   color: gray;
+//   cursor: pointer;
+//   font-size: 18px;
+// }
+
+// .addButton {
+//   background: none;
+//   border: none;
+//   color: white;
+//   cursor: pointer;
+//   font-size: 24px;
+//   align-self: flex-end;
+// }
+
+// .createPollButton {
+//   padding: 10px 20px;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: white;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s,
+//     color 0.3s;
+//   font-size: 16px;
+// }
+
+// .createPollButton:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// .error {
+//   color: red;
+// }
+
+// .pollFormContainer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .formElement {
+//   border: 5px solid white;
+//   border-radius: 10px;
+//   padding: 20px;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   max-width: 700px;
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   align-items: center;
+//   // align-items: flex-start;
+// }
+
+// .labelContainer {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   // align-items: flex-start;
+// }
+
+// .label {
+//   display: flex;
+//   // flex-direction: column;
+//   // align-items: flex-start;
+//   align-items: center;
+//   gap: 10px; // neu
+//   width: 100%;
+//   justify-content: space-between;
+//   // color: white;
+// }
+
+// .inputContainer {
+//   display: flex;
+//   // flex-direction: row;
+//   align-items: center;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// // neu
+// .optionContainer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 100%;
+// }
+
+// .input {
+//   padding: 10px;
+//   border: 2px solid white;
+//   background: transparent;
+//   color: white;
+//   width: 100%;
+//   flex-grow: 1;
+// }
+
+// .removeButton {
+//   background: none;
+//   border: none;
+//   color: gray;
+//   cursor: pointer;
+//   font-size: 18px;
+// }
+
+// .addButton {
+//   background: none;
+//   border: none;
+//   color: white;
+//   cursor: pointer;
+//   font-size: 28px;
+//   align-self: flex-end; // neu
+// }
+
+// .createPollButton {
+//   padding: 10px 20px;
+//   border: 2px solid white;
+//   border-radius: 10px;
+//   background: transparent;
+//   color: white;
+//   cursor: pointer;
+//   transition:
+//     background-color 0.3s,
+//     color 0.3s;
+//   font-size: 16px;
+// }
+
+// .createPollButton:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// .error {
+//   color: red;
+// }
