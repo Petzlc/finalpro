@@ -3,6 +3,7 @@ import { getOptionsByPollIdInsecure } from '../../database/options';
 import { getPollByIdInsecure } from '../../database/polls';
 import { getResponsesByPollIdInsecure } from '../../database/responses';
 import PollResultsChart from '../components/PollResultsChart';
+import styles from './ResultsPage.module.scss';
 
 type Props = {
   searchParams: { pollId: string };
@@ -23,11 +24,20 @@ export default async function ResultsPage({ searchParams }: Props) {
   const data = responses.map((response) => response.count);
 
   return (
-    <div>
+    <div className={styles.resultsContainer}>
       <h1>{poll.title}</h1>
-      <PollResultsChart labels={labels} data={data} />
-      <Link href="/dashboard">Return to dashboard</Link>
-      <Link href="/createPolls">Create another poll</Link>
+      <div className={styles.chartContainer}>
+        <PollResultsChart labels={labels} data={data} />
+      </div>
+      <hr className={styles.divider} />
+      <div className={styles.resultsLinks}>
+        <Link href="/dashboard" className={styles.resultsLink}>
+          Return to dashboard
+        </Link>
+        <Link href="/createPolls" className={styles.resultsLink}>
+          Create another poll
+        </Link>
+      </div>
     </div>
   );
 }

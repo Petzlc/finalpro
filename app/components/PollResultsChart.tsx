@@ -36,9 +36,10 @@ export default function PollResultsChart({
       {
         label: 'Votes',
         data,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: 'rgba(104, 255, 255, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
+        color: 'white',
       },
     ],
   };
@@ -52,6 +53,7 @@ export default function PollResultsChart({
       title: {
         display: true,
         text: 'Poll Results',
+        color: 'white',
       },
     },
   };
