@@ -6,6 +6,7 @@ import { CreatePollResponseBodyPost } from '../(auth)/api/createPolls/route';
 import { CreateOptionsResponseBodyPost } from '../(auth)/api/options/route';
 // import { getSafeReturnToPath } from '../../util/validation';
 import ErrorMessage from '../ErrorMessage';
+import styles from './PollForm.module.scss';
 
 // I might want to use this returnTo for a safe return to a page, just like in the LoginForm. Looks like this:
 // router.push(
@@ -96,36 +97,47 @@ export default function PollForm(props: Props) {
   }
 
   return (
-    <div>
-      <h1>Create a new Poll</h1>
-      <form onSubmit={handleSubmit}>
-        {/* <form onSubmit={async (event) => await handleSubmit(event)}> */}
-        <div>
-          <label>
+    <div className={styles.pollFormContainer}>
+      <div className={styles.formElement}>
+        <h1>Create a Poll</h1>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {/* <form onSubmit={async (event) => await handleSubmit(event)}> */}
+          <div className={styles.label}>
+            {/* <label className={styles.label}> */}
             Poll Title:
-            <input
-              value={title}
-              onChange={(event) => setTitle(event.currentTarget.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Description:
-            <input
-              value={description}
-              onChange={(event) => setDescription(event.currentTarget.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.input}
+                value={title}
+                onChange={(event) => setTitle(event.currentTarget.value)}
+                required
+              />
+            </div>
+            {/* </label> */}
+          </div>
+          <div className={styles.label}>
+            {/* <label className={styles.label}> */}
+            Poll Description:
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.input}
+                value={description}
+                onChange={(event) => setDescription(event.currentTarget.value)}
+                required
+              />
+            </div>
+            {/* </label> */}
+          </div>
+          <div className={styles.label}>
+            {/* <label className={styles.label}> */}
             Options:
             {options.map((option, index) => (
-              <div key={`option-${option.index}`}>
+              <div
+                className={styles.inputContainer}
+                key={`option-${option.index}`}
+              >
                 <input
+                  className={styles.input}
                   value={option}
                   onChange={(event) =>
                     handleOptionChange(index, event.currentTarget.value)
@@ -137,24 +149,25 @@ export default function PollForm(props: Props) {
                     type="button"
                     onClick={() => handleRemoveOption(index)}
                   >
-                    Delete
+                    X
                   </button>
                 )}
               </div>
             ))}
-          </label>
-          <button type="button" onClick={handleAddOption}>
-            Add Option
-          </button>
-        </div>
-        <button>Create Poll</button>
-
-        {errors.map((error) => (
-          <div className="error" key={`error-${error.message}`}>
-            <ErrorMessage>{error.message}</ErrorMessage>
+            {/* </label> */}
+            <button type="button" onClick={handleAddOption}>
+              +
+            </button>
           </div>
-        ))}
-      </form>
+          <button>Create Poll</button>
+
+          {errors.map((error) => (
+            <div className="error" key={`error-${error.message}`}>
+              <ErrorMessage>{error.message}</ErrorMessage>
+            </div>
+          ))}
+        </form>
+      </div>
     </div>
   );
 }

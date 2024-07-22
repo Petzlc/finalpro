@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { getSafeReturnToPath } from '../../../util/validation';
 import ErrorMessage from '../../ErrorMessage';
 import { LoginResponseBodyPost } from '../api/login/route';
+import styles from './LoginForm.module.scss';
 
 type Props = { returnTo?: string | string[] };
 
@@ -54,37 +55,48 @@ export default function LoginForm(props: Props) {
   }
 
   return (
-    <form onSubmit={async (event) => await handleLogin(event)}>
-      <label>
-        userName
-        <input
-          value={username}
-          onChange={(event) => setUsername(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Email
-        <input
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.currentTarget.value)}
-        />
-      </label>
-      <button>Sign In</button>
+    <div className={styles.formContainer}>
+      <div className={styles.formElement}>
+        <div className={styles.formTitle}>Sign In</div>
+        <form
+          className={styles.form}
+          onSubmit={async (event) => await handleLogin(event)}
+        >
+          <label className={styles.label}>
+            userName
+            <input
+              className={styles.input}
+              value={username}
+              onChange={(event) => setUsername(event.currentTarget.value)}
+            />
+          </label>
+          <label className={styles.label}>
+            Password
+            <input
+              className={styles.input}
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.currentTarget.value)}
+            />
+          </label>
+          <label className={styles.label}>
+            Email
+            <input
+              className={styles.input}
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.currentTarget.value)}
+            />
+          </label>
+          <button className={styles.button}>Sign In</button>
 
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          <ErrorMessage>{error.message}</ErrorMessage>
-        </div>
-      ))}
-    </form>
+          {errors.map((error) => (
+            <div className="error" key={`error-${error.message}`}>
+              <ErrorMessage>{error.message}</ErrorMessage>
+            </div>
+          ))}
+        </form>
+      </div>
+    </div>
   );
 }
