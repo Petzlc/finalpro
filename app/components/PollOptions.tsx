@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import styles from '../poll/[id]/poll.module.scss';
 
 type PollOptionsProps = {
   pollId: number;
@@ -54,21 +55,24 @@ export default function PollOptions({ pollId, options }: PollOptionsProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className={styles.pollOptionsContainer}>
+      <div className={styles.radioContainer}>
         {options.map((option) => (
-          <div key={`option-${option.id}`}>
+          <div key={`option-${option.id}`} className={styles.optionItem}>
             <input
               type="radio"
               name="pollOption"
               value={option.id}
               checked={selectedOption === option.id}
               onChange={() => handleVote(option.id)}
+              className={styles.radioInput}
             />
-            {option.singleOption}
+            <span className={styles.optionText}>{option.singleOption}</span>
           </div>
         ))}
-        <button>Submit</button>
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.submitButton}>Submit</button>
       </div>
     </form>
   );

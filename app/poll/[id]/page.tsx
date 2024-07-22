@@ -46,15 +46,17 @@ export default async function PollPage({ params }: Props) {
 
   return (
     <div className={styles.pollContainer}>
-      <h1>{poll.title}</h1>
-      <p>{poll.description}</p>
+      <h1 className={styles.pollTitle}>{poll.title}</h1>
+      <p className={styles.pollDescription}>{poll.description}</p>
       {userHasResponded ? (
         <div>You have already responded to this poll</div>
       ) : (
         <PollOptions pollId={pollId} options={options} />
       )}
       {/* <PollResults pollId={pollId} /> */}
-      <Link href={`/results?pollId=${pollId}`}>View Results</Link>
+      <div className={styles.buttonContainer}>
+        <Link href={`/results?pollId=${pollId}`} className={styles.viewResultsLink}>View Results</Link>
+      </div>
     </div>
   );
 }
