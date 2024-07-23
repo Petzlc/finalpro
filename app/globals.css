@@ -14,7 +14,7 @@ body {
 
 main {
   background: inherit;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
 }
@@ -22,6 +22,9 @@ main {
 header {
   background: transparent;
   border-bottom: 5px solid white;
+  padding-top: 15px;
+  /* padding-bottom: 5px; */
+  height: 80px;
 }
 
 footer {
@@ -42,7 +45,10 @@ footer {
 }
 
 .left-nav {
+  font-size: 34px;
+  font-weight: bold;
   flex: 1;
+  letter-spacing: 1px;
 }
 
 .right-nav {
@@ -70,17 +76,18 @@ footer {
     color 0.2s;
 }
 
-.left-nav a:hover,
+/* HandsApp & Profilename*/
+/* .left-nav a:hover,
 .right-nav a:hover {
-  background-color: #444444;
-  color: white;
-}
+  background-color: white;
+  color: black;
+} */
 
-.signIn {
+/* .signIn {
   padding: 5px;
   outline: 1px solid white;
   border-radius: 15px;
-}
+} */
 
 /* Login/Logout Link styling */
 .auth-button {
@@ -98,8 +105,8 @@ footer {
 
 .auth-button:hover,
 .auth-button:focus {
-  background-color: #444444;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .dropdown {
@@ -118,7 +125,8 @@ footer {
 }
 
 .dropdown-summary:hover {
-  background-color: #444444;
+  background-color: white;
+  color: black;
 }
 
 .dropdown-content {
@@ -126,7 +134,7 @@ footer {
   position: absolute;
   /* left: 0;       align dropdown to the left*/
   /* right: 0; */
-  background-color: #333333;
+  background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
   flex-direction: column;
@@ -138,7 +146,7 @@ footer {
 /* Link styling inside dropdown content */
 .dropdown-content a {
   padding: 10px 20px;
-  color: white;
+  color: black;
   text-decoration: none;
   display: block;
   white-space: nowrap;
@@ -146,7 +154,7 @@ footer {
 }
 
 .dropdown-content a:hover {
-  background-color: #444444;
+  background-color: #b8b6b6;
 }
 
 .dropdown[open] .dropdown-content {
