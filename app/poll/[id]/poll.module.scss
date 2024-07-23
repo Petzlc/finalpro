@@ -59,17 +59,19 @@
 .radioContainer {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
-  // justify-content: space-around;
+  // margin: 20px;
+  justify-content: space-between;
 }
 
 .optionItem {
-  flex: 1 1 45%;
+  // flex: 1 1 45%;
+  width: 45%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 25px;
-  // padding: 20px;
+  // justify-content: center;
+  margin-bottom: 20px;
+  // padding-bottom: 25px;
+  padding-left: 30px;
 }
 
 .radioInput {
