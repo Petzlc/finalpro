@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import LogoutButton from '../../(auth)/logout/LogoutButton';
 import { getValidSessionById } from '../../../database/sessions';
 import { getUserByIdInsecure } from '../../../database/users';
+import styles from './Profile.module.scss';
 
 type Props = {
   params: {
@@ -36,7 +37,7 @@ export default async function UserProfile(props: Props) {
   }
 
   return (
-    <div>
+    <div className={styles.profileContainer}>
       <h1>{props.params.username}'s Profile</h1>
       <LogoutButton />
     </div>

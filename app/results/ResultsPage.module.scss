@@ -7,6 +7,7 @@
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .chartContainer {
@@ -16,12 +17,10 @@
   align-items: center;
   width: 100%;
   padding-bottom: 20px;
-  // border-bottom: 5px solid white;
 }
 
 .divider {
-  width: 98vw;
-  // position: relative;
+  width: 100vw;
   border: none;
   border-top: 2px solid white;
   margin: 20px 0;

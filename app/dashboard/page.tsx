@@ -1,10 +1,9 @@
-// This page is for creating polls I guess so you might then want to put this into a polls folder that doesn't exist yet with the following path: app/polls/dashboard
-
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getAllPollsInsecure, Poll } from '../../database/polls';
 import { getValidSession } from '../../database/sessions';
+import styles from './Dashboard.module.scss';
 
 export const metadata = {
   title: 'Poll Admin page',
@@ -30,15 +29,17 @@ export default async function PollsPage() {
   const polls: Poll[] = await getAllPollsInsecure();
 
   return (
-    <div>
+    <div className={styles.dashboardContainer}>
       <h1>Dashboard</h1>
       <h2>All Polls</h2>
-      <ul>
+      <ul className={styles.pollsList}>
         {polls.map((poll) => (
-          <li key={`poll-${poll.id}`}>
+          <li key={`poll-${poll.id}`} className={styles.pollCard}>
             <Link href={`/poll/${poll.id}`}>
-              <h3>{poll.title}</h3>
-              <p>{poll.description}</p>
+              <div className={styles.pollCardContent}>
+                <h3 className={styles.pollCardTitle}>{poll.title}</h3>
+                <p className={styles.pollCardText}>{poll.description}</p>
+              </div>
             </Link>
           </li>
         ))}
