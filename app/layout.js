@@ -75,7 +75,7 @@ export default async function RootLayout({ children }) {
         </header>
         <main>{children}</main>
         <footer>
-          <p>Footer content</p>
+          <p>&copy; Chlodwig Petzl</p>
         </footer>
       </body>
     </html>

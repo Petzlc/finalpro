@@ -17,6 +17,7 @@ main {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
 }
 
 header {
@@ -25,6 +26,7 @@ header {
   padding-top: 15px;
   /* padding-bottom: 5px; */
   height: 80px;
+  /* overflow: hidden; */
 }
 
 footer {
@@ -138,9 +140,10 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
   flex-direction: column;
-  width: 150px;
+  width: 118px;
   padding: 10px 0;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 /* Link styling inside dropdown content */

@@ -1,7 +1,7 @@
 .pollContainer {
   border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
+  padding: 30px;
+  margin: 62px auto;
   width: 90%;
   max-width: 800px;
   background: rgba(128, 128, 128, 0.2);
@@ -11,12 +11,14 @@
   color: white;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 34px;
 }
 
 .pollDescription {
   color: white;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 22px;
 }
 
 .buttonContainer {
@@ -33,6 +35,7 @@
   border-radius: 15px;
   padding: 10px 20px;
   margin-right: 10px;
+  margin-top: 10px;
   transition:
     background-color 0.3s,
     color 0.3s;
