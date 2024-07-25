@@ -34,7 +34,19 @@ HandsApp is a full-stack web application designed to create and take polls in th
 
 ## Screenshots
 
-tba
+Landing Page
+
+Sign Up
+
+Sign In
+
+Dashboard
+
+Create a poll
+
+Take a poll
+
+Results page
 
 ## Deployment
 
