@@ -22,7 +22,7 @@ export default async function Home() {
       </div>
       <div className={styles.linkContainer}>
         <Link href="/createPolls" className={styles.styledLink}>
-          Take a Poll
+          Create a Poll
         </Link>
       </div>
       <div className={styles.pollCardsContainer}>
