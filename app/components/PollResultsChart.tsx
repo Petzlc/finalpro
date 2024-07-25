@@ -44,6 +44,9 @@ export default function PollResultsChart({
     ],
   };
 
+  console.log('Chart Labels:', labels);
+  console.log('Chart Data:', data);
+
   const chartOptions = {
     responsive: true,
     plugins: {

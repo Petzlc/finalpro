@@ -23,6 +23,9 @@ export default async function ResultsPage({ searchParams }: Props) {
   const labels = options.map((option) => option.singleOption);
   const data = responses.map((response) => response.count);
 
+  console.log('Responses:', responses);
+  console.log('Data:', data);
+
   return (
     <div className={styles.resultsContainer}>
       <h1>{poll.title}</h1>

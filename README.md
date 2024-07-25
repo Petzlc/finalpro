@@ -1,39 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+## HandsApp
 
-## Getting Started
+HandsApp is a full-stack web application designed to create and take polls in the simplest way possible. It allows users to create a new poll, with as many options as they want, and take a poll easily and uncomplicated.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Landing Page, with a selection of randomly generated polls.
+- User authorization and authentication (Login/Logout)
+- Profile Page
+- Dashboard with all the created polls
+- Polls page to create a new poll, with the possibility of adding and removing options
+- Polls page for taking a poll
+- A results page with a chart that shows the amount of picks per option
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js
+- PostgreSql
+- Node.js
+- JavaScript
+- Typescript
+- HTML
+- CSS3
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## External Technologies / API:
 
-## Learn More
+- chart.js
+- react-chartjs-2
 
-To learn more about Next.js, take a look at the following resources:
+## Prototyping
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- FigJam
+- DrawSQL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+tba
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-- next.js
-- postgres
+- fly.io
+- Docker
