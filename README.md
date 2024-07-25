@@ -50,5 +50,4 @@ Results page
 
 ## Deployment
 
-- fly.io
-- Docker
+- Vercel
