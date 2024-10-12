@@ -55,4 +55,4 @@ Results page
 ## Deployment
 
 - Vercel
-- https://finalpro-5za7d5is0-chlodwig-petzls-projects.vercel.app/
+- https://hands-app.vercel.app/
